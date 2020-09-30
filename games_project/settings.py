@@ -77,12 +77,13 @@ WSGI_APPLICATION = 'games_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':  'games',
-        'USER': 'root',
-        'PASSWORD': '',
+        # 'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':  'games2',
+        'USER': 'postgres',
+        'PASSWORD': 'Aa123456',
         'HOST': 'localhost',
-        'PORT':'3306',
+        'PORT':'5432',
     }
 }
 
@@ -124,3 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+ 
+
+REST_FRAMEWORK={
+'DEFAULT_PAGINATION_CLASS': 
+'rest_framework.pagination.LimitOffsetPagination',                                
+'PAGE_SIZE': 5,
+'DEFAULT_AUTHENTIFICATION_CLASSES': ('rest_framework.authentification.BasicAuthentification', 'rest_framework.authentification.SessionAuthentification'), 
+}
+ 
